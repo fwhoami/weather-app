@@ -8,22 +8,39 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <input type="search"
-                id="city-search"
-                autofocus="on"
-                placeholder="Enter city here"
-                />
+    <form id="city-search-form">
+        <div class="container">
+            <div class="card">
+                <div class="row">
+                    <div class="col">
+                        <input type="search"
+                        id="city-search"
+                        autofocus="on"
+                        placeholder="Enter city here"
+                        />
+                    </div>
+                    <div class="col">
+                        <button>Search</button>
+                    </div>
+                    <div class="col" type="button">
+                        <button>Local</button>
+                    </div>
+                </div>
+                <!--City not found message-->
+                <div class="row">
+                    <div class="col-12 city-error">
+                        <span class="city-not-found"></span>
+                    </div>
+                    <div class="row card-middle-body">
+                        <div class="col-6 text-wrapper">
+                            
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col">
-                <button>Search</button>
-            </div>
-            <div class="col">
-                <button>Local</button>
-            </div>
+
         </div>
-    </div>
+    </form>
+
 </body>
 </html>
