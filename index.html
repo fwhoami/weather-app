@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=>, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Weather-app</title>
 </head>
 <body>
     <form id="city-search-form">
@@ -31,10 +31,72 @@
                     <div class="col-12 city-error">
                         <span class="city-not-found"></span>
                     </div>
-                    <div class="row card-middle-body">
-                        <div class="col-6 text-wrapper">
-                            
-                        </div>
+                <div class="row">
+                    <div class="col-12 date">
+                        <span id="current-date">Monday, 10 Jule</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 time" id="current-time">
+                        16:16
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 city"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 current-weather-icon">
+                        <i class="fa-light fa-cloud"></i>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 temperature">
+                      <span class="degree-temp" id="main-temperature"></span>
+                      <span class="celsius-fahrenheit">
+                        <a href="#" class="celsius" id="celsius-link">C</a>
+                        |
+                        <a href="#" class="fahrenheit" id="fahrenheit-link">F</a>
+                      </span>
+                    </div>
+                  </div>
+                
+                  <div class="five-day-forecast">
+                    <div class="row forecast-icons">
+                      <div class="col-2">
+                        <i class="far fa-snowflake forecast-icon"></i>
+                      </div>
+                      <div class="col-2">
+                        <i class="fas fa-cloud-sun-rain forecast-icon"></i>
+                      </div>
+                      <div class="col-2">
+                        <i class="fas fa-cloud-sun forecast-icon"></i>
+                      </div>
+                      <div class="col-2">
+                        <i class="fas fa-cloud-showers-heavy forecast-icon"></i>
+                      </div>
+                      <div class="col-2">
+                        <i class="fas fa-cloud-showers-heavy forecast-icon"></i>
+                      </div>
+                    </div>
+
+                    <div class="row forecast-temp">
+                        <div class="col-2">4° / 0°</div>
+                        <div class="col-2">12° / 4°</div>
+                        <div class="col-2">11° / 3°</div>
+                        <div class="col-2">13° / 5°</div>
+                        <div class="col-2">7° / 4°</div>
+                      </div>
+            
+                      <div class="row forecast-day">
+                        <div class="col-2">Sun</div>
+                        <div class="col-2">Mon</div>
+                        <div class="col-2">Tues</div>
+                        <div class="col-2">Weds</div>
+                        <div class="col-2">Thurs</div>
                     </div>
                 </div>
             </div>
