@@ -68,3 +68,8 @@
 .city{
   font-size: 35px;
 }
+
+.celsius,
+.fahrenheit,{
+  font: size 15px;
+}
