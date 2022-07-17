@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gantari:ital@1&family=Indie+Flower&family=Josefin+Sans&display=swap" rel="stylesheet"> 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
 <body>
     <form id="city-search-form">
@@ -42,7 +44,7 @@
                         <span class="col-6 time" id="current-time">
                             16:16</span>
 
-                            <div class="col-12 city" id="city"></div>
+                            <div class="col-12 city" id="current-city"></div>
                       </div>
                                              
                       <span class="col weather-icon">
@@ -53,7 +55,7 @@
 
           <div class="row">
               <div class="col-12 temperature">
-                <span class="degree-temp" id="main-temperature"></span>
+                <span class="degree-temp" id="main-temperature">23</span>
                 <span class="celsius-fahrenheit">
                   <a href="#" class="celsius" id="celsius-link">C</a>
                   |
