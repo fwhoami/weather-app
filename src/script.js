@@ -53,7 +53,6 @@ let timeElement = document.querySelector("#current-time");
 timeElement.innerHTML = formatTime(now);
 
 
-
 function searchCity(city){
   let apiKey = "32b1356da0b65f877b0f297ff829102a";
   let unit = "metric";
@@ -63,14 +62,12 @@ function searchCity(city){
 
 function displayWeather(response){
   document.querySelector("#current-city").innerHTML = response.data.name;
-  document.querySelector("#main-temperature") = `${Math.round(
-    response.data.main.temp
-  )}°`;
+  document.querySelector("#main-temperature") = `${response.data.main.temp}°`;
 }
 
 function searchSubmit(event){
   event.preventDefault();
-  let city = document.querySelector("#current-city").value;
+  let city = document.querySelector("#city-search").value;
   searchCity(city);
 }
 
