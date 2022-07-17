@@ -62,7 +62,7 @@ function searchCity(city){
 
 function displayWeather(response){
   document.querySelector("#current-city").innerHTML = response.data.name;
-  document.querySelector("#main-temperature") = `${response.data.main.temp}°`;
+  document.querySelector("#main-temperature").innerHTML = `${Math.round(response.data.main.temp)}°`;
 }
 
 function searchSubmit(event){
@@ -74,7 +74,7 @@ function searchSubmit(event){
 let searchForm = document.querySelector("#city-search-form");
 searchForm.addEventListener("submit", searchSubmit);
 
-searchCity("Tokyo");
+searchCity("Kyiv");
 
 
 //Temperature
