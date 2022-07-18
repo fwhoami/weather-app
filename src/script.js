@@ -89,7 +89,7 @@ function getCurrentPosition(){
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-let buttonLocal = document.querySelector("button");
+let buttonLocal = document.querySelector("#local-button");
 buttonLocal.addEventListener("click", getCurrentPosition);
 
 
