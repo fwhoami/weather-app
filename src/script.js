@@ -77,6 +77,22 @@ searchForm.addEventListener("submit", searchSubmit);
 searchCity("Kyiv");
 
 
+function showPosition(position){
+  let apiKey = "32b1356da0b65f877b0f297ff829102a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${
+    position.coords.latitude
+  }&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayWeather);
+}
+
+function getCurrentPosition(){
+  navigator.geolocation.getCurrentPosition(showPosition);
+}
+
+let buttonLocal = document.querySelector("button");
+buttonLocal.addEventListener("click", getCurrentPosition);
+
+
 //Temperature
 function getFahrenheitTemp(event) {
   event.preventDefault();
