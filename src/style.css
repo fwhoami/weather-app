@@ -20,13 +20,6 @@
     font-family: 'Josefin Sans', sans-serif;
   }
 
-  .row{
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-  }
-
   .date,
   .time,
   .city,
@@ -69,11 +62,10 @@
   font-size: 35px;
 }
 
-
 button {
   display: inline;
   margin: 10px;
-  padding: 12px 15px 8px 15px;
+  padding: 10px 13px 8px 13px;
   box-sizing: border-box;
   background: #B2A4FF;
   border-width: 2px;
@@ -87,7 +79,7 @@ button {
 }
 
 button:hover {
-  color: #32265f;
+  color: #393f4e;
   background: #b69ff0;
   border-radius: 15px;
   box-shadow: 0 0 5px #ffffff, 0 0 8px #ffffff, 0 0 10px #ffffff;
@@ -101,4 +93,12 @@ input {
   background-color: #D3CEDF;
   border: 1px solid #b69ff0;
   border-radius: 4px;
+}
+
+.weather-icon{
+  margin-top: 15px;
+}
+
+.Weather-Info{
+  margin-left: 7px;
 }
