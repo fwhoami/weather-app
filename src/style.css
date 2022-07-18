@@ -68,3 +68,37 @@
 .city{
   font-size: 35px;
 }
+
+
+button {
+  display: inline;
+  margin: 10px;
+  padding: 12px 15px 8px 15px;
+  box-sizing: border-box;
+  background: #B2A4FF;
+  border-width: 2px;
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 1px;
+  border: 1px solid #B2A4FF;
+  border-radius: 15px;
+  box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.2);
+  transition: all 200ms ease-in-out;
+}
+
+button:hover {
+  color: #32265f;
+  background: #b69ff0;
+  border-radius: 15px;
+  box-shadow: 0 0 5px #ffffff, 0 0 8px #ffffff, 0 0 10px #ffffff;
+  cursor: pointer;
+}
+
+input {
+  padding: 7px;
+  margin-top: 15px;
+  margin-left: 10px;
+  background-color: #D3CEDF;
+  border: 1px solid #b69ff0;
+  border-radius: 4px;
+}
