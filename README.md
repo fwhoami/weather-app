@@ -5,7 +5,7 @@ It project was hosted on Netlify. For demo, please visit - https://deluxe-marshm
 This application uses data from the OpenWeatherMap API. It does not store any data from the user.
 
 ## Functionality
-+++ User can search for many major cities, but small towns are not available.
-+++ User can select to display Fahrenheit or Celsius temperature.
-+++ User can see the weather description.
-+++ User can see wind speed and humidity data for their selected city.
+1. User can search for many major cities, but small towns are not available.
+2. User can select to display Fahrenheit or Celsius temperature.
+3. User can see the weather description.
+4. User can see wind speed and humidity data for their selected city.
