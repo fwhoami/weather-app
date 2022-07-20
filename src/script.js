@@ -53,6 +53,7 @@ let timeElement = document.querySelector("#current-time");
 timeElement.innerHTML = formatTime(now);
 
 
+//Search_button
 function searchCity(city){
   let apiKey = "32b1356da0b65f877b0f297ff829102a";
   let unit = "metric";
@@ -77,6 +78,7 @@ searchForm.addEventListener("submit", searchSubmit);
 searchCity("Kyiv");
 
 
+//Local_button
 function showPosition(position){
   let apiKey = "32b1356da0b65f877b0f297ff829102a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${
@@ -113,3 +115,6 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", getCelsiusTemp);
 
 
+//Weakly Forecast
+
+let weaklyElement = document.innerHTML("forecast-temp");
