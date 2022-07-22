@@ -27,7 +27,8 @@
   .temperature,
   .celsius,
   .fahrenheit,
-  .five-day-forecast {
+  .five-day-forecast,
+  #humidity-wind {
    color: #393f4e;
   }
 
@@ -40,7 +41,7 @@
   }
 
   .weather-icon {
-    font-size: 120px;
+    font-size: 100px;
     line-height: 20px;
   }
 
@@ -105,4 +106,9 @@ input {
 
 #footer{
   margin: 10px;
+}
+
+#humidity-wind{
+  font-size: 20px;
+  margin-top: 20px;
 }
