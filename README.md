@@ -9,3 +9,5 @@ This application uses data from the OpenWeatherMap API - https://openweathermap.
 2. User can select to display Fahrenheit or Celsius temperature.
 3. User can see the weather description.
 4. User can see wind speed and humidity data for their selected city.
+
+#UX Design
