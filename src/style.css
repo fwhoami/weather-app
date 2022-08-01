@@ -33,7 +33,12 @@
   }
 
   .date{
-    font-size: 21px;
+    font-size: 20px;
+    width: 110px;
+    line-height: 25px;
+    list-style: none;
+    margin-bottom: 5px;
+    padding: 10px 20px 10px 0;
   }
 
   .time{
@@ -110,5 +115,9 @@ input {
 
 #humidity-wind{
   font-size: 20px;
-  margin-top: 20px;
+  margin-top: 25px;
+}
+
+#box{
+  margin-top: 10px;
 }
