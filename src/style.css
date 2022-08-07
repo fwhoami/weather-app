@@ -56,7 +56,7 @@
 }
 
 .celsius-fahrenheit {
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .five-day-forecast {
@@ -120,4 +120,8 @@ input {
 
 #box{
   margin-top: 10px;
+}
+
+.temperature{
+  margin-left: 35px;
 }
