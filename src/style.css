@@ -44,12 +44,6 @@
   .time{
     font-size: 25px;
   }
-
-  .weather-icon {
-    font-size: 100px;
-    line-height: 20px;
-  }
-
   
 .degree-temp {
   font-size: 60px;
@@ -124,4 +118,8 @@ input {
 
 .temperature{
   margin-left: 35px;
+}
+
+.main-weather-img {
+  width: 80%;
 }

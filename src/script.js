@@ -62,31 +62,6 @@ function searchCity(city){
   axios.get(apiUrl).then(displayWeather);
 }
 
-function displayWeather(response) {
-  celsiusTemperature = Math.round(response.data.main.temp);
-
-  document.querySelector("#current-city").innerHTML = response.data.name;
-  document.querySelector("#main-temperature").innerHTML = `${celsiusTemperature}°`;
-
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed
-  );
-
-}
-
-function searchSubmit(event) {
-  event.preventDefault();
-  let city = document.querySelector("#city-search").value;
-  searchCity(city);
-}
-
-let searchForm = document.querySelector("#city-search-form");
-searchForm.addEventListener("submit", searchSubmit);
-
-searchCity("Kyiv");
-
-
 //Local_button
 function showPosition(position) {
   let apiKey = "32b1356da0b65f877b0f297ff829102a";
@@ -103,6 +78,43 @@ function getCurrentPosition() {
 
 let buttonLocal = document.querySelector("#local-button");
 buttonLocal.addEventListener("click", getCurrentPosition);
+
+
+function displayWeather(response) {
+  celsiusTemperature = Math.round(response.data.main.temp);
+
+  document.querySelector("#current-city").innerHTML = response.data.name;
+  document.querySelector("#main-temperature").innerHTML = `${celsiusTemperature}°`;
+
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+
+  let mainIcon = response.data.weather[0].icon;
+  document
+    .querySelector("#main-icon")
+    .setAttribute("src", `images/media/${mainIcon}.png`);
+  document
+    .querySelector("#main-icon")
+    .setAttribute("alt", `${response.data.weather[0].description}`);
+
+  showPosition(response.data.coords);
+
+}
+
+
+function searchSubmit(event) {
+  event.preventDefault();
+  let city = document.querySelector("#city-search").value;
+  searchCity(city);
+}
+
+let searchForm = document.querySelector("#city-search-form");
+searchForm.addEventListener("submit", searchSubmit);
+
+searchCity("Kyiv");
+
 
 
 //display temperature
