@@ -11,3 +11,5 @@ This application uses data from the OpenWeatherMap API - https://openweathermap.
 4. User can see wind speed and humidity data for their selected city.
 
 ## UX Design
+<img ![image](https://user-images.githubusercontent.com/94908451/184005913-d363b2f9-58f9-448b-ad0a-2da929cda340.png)
+/>
