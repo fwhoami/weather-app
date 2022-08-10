@@ -53,6 +53,15 @@ let timeElement = document.querySelector("#current-time");
 timeElement.innerHTML = formatTime(now);
 
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+
 //Search_button
 function searchCity(city){
   let apiKey = "32b1356da0b65f877b0f297ff829102a";
@@ -62,7 +71,39 @@ function searchCity(city){
   axios.get(apiUrl).then(displayWeather);
 }
 
-//Local_button
+//Update weather display
+
+function getForecast(coordinates) {
+  let apiKey = "32b1356da0b65f877b0f297ff829102a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showWeatherForecast);
+}
+
+function showWeatherForecast(response) {
+  let forecast = response.data.daily;
+  weatherForecastElement = document.querySelector("#weather-forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6)
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+        ${formatDay(forecastDay.dt)} 
+              <img src="images/media/${
+                forecastDay.weather[0].icon
+              }.png" width="60" class="image-fluid" id="forecast-icon />
+              <span class="forecast-temperature">${Math.round(
+                forecastDay.temp.day
+              )}°C</span>
+            </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  weatherForecastElement.innerHTML = forecastHTML;
+}
+
+//Current location 
 function showPosition(position) {
   let apiKey = "32b1356da0b65f877b0f297ff829102a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${
@@ -72,12 +113,10 @@ function showPosition(position) {
   axios.get(apiUrl).then(displayWeather);
 }
 
-function getCurrentPosition() {
+function getCurrentPosition(event) {
+  event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
-
-let buttonLocal = document.querySelector("#local-button");
-buttonLocal.addEventListener("click", getCurrentPosition);
 
 
 function displayWeather(response) {
@@ -99,7 +138,7 @@ function displayWeather(response) {
     .querySelector("#main-icon")
     .setAttribute("alt", `${response.data.weather[0].description}`);
 
-  showPosition(response.data.coords);
+  showPosition(response.data.coord);
 
 }
 
@@ -110,25 +149,32 @@ function searchSubmit(event) {
   searchCity(city);
 }
 
-let searchForm = document.querySelector("#city-search-form");
-searchForm.addEventListener("submit", searchSubmit);
-
-searchCity("Kyiv");
-
-
 
 //display temperature
 function getFahrenheitTemp(event) {
   event.preventDefault();
-  let currentTemp = document.querySelector("#main-temperature");
-  currentTemp.innerHTML = `50°`;
+
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
+  document.querySelector("#main-temperature").innerHTML = Math.round(fahrenheitTemp);
 }
 
 function getCelsiusTemp(event) {
   event.preventDefault();
-  let currentTemp = document.querySelector("#main-temperature");
-  currentTemp.innerHTML = `17°`;
+
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  document.querySelector("#main-temperature").innerHTML =
+    Math.round(celsiusTemperature);
 }
+
+let celsiusTemperature = null;
+
+
+//Event listeners
+let searchForm = document.querySelector("#city-search-form");
+searchForm.addEventListener("submit", searchSubmit);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", getFahrenheitTemp);
@@ -136,7 +182,8 @@ fahrenheitLink.addEventListener("click", getFahrenheitTemp);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", getCelsiusTemp);
 
+let buttonLocal = document.querySelector("#local-button");
+buttonLocal.addEventListener("click", getCurrentPosition);
 
-//Weakly Forecast
 
-let weaklyElement = document.innerHTML("forecast-temp");
+searchCity("Kyiv");
