@@ -92,7 +92,7 @@ function showWeatherForecast(response) {
         ${formatDay(forecastDay.dt)} 
               <img src="images/media/${
                 forecastDay.weather[0].icon
-              }.png" width="60" class="image-fluid" id="forecast-icon />
+              }.png" width="60"  id="forecast-icon />
               <span class="forecast-temperature">${Math.round(
                 forecastDay.temp.day
               )}°C</span>
@@ -104,18 +104,19 @@ function showWeatherForecast(response) {
 }
 
 //Current location 
-function showPosition(position) {
+function showLocation(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+
   let apiKey = "32b1356da0b65f877b0f297ff829102a";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${
-    position.coords.latitude
-  }&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayWeather);
 }
 
-function getCurrentPosition(event) {
+function getCurrentLocation(event) {
   event.preventDefault();
-  navigator.geolocation.getCurrentPosition(showPosition);
+  navigator.geolocation.getCurrentPosition(showLocation);
 }
 
 
@@ -135,11 +136,9 @@ function displayWeather(response) {
     .querySelector("#main-icon")
     .setAttribute("src", `images/media/${mainIcon}.png`);
   document
-    .querySelector("#main-icon")
-    .setAttribute("alt", `${response.data.weather[0].description}`);
+    .querySelector("#main-icon");
 
-  showPosition(response.data.coord);
-
+  getForecast(response.data.coord);
 }
 
 
@@ -183,7 +182,7 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", getCelsiusTemp);
 
 let buttonLocal = document.querySelector("#local-button");
-buttonLocal.addEventListener("click", getCurrentPosition);
+buttonLocal.addEventListener("click", getCurrentLocation);
 
 
 searchCity("Kyiv");
